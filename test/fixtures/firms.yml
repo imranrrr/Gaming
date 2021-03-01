@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invoice_data: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  maiden_name: MyString
+  dob: 01-01-2021
+  ssn: 111-22-3333
+  dl_state: CO
+  dl_number: MyString
+  notes: MyString
+  client_request: MyString
+
+two:
+  invoice_data: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  maiden_name: MyString
+  dob: 01-01-2021
+  ssn: 22-33-4444
+  dl_state: CO
+  dl_number: MyString
+  notes: MyString
+  client_request: MyString
