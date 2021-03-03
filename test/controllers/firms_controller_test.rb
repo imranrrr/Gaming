@@ -1,7 +1,14 @@
 require 'test_helper'
 
 class FirmsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+  
   setup do
+    user = users(:user_1)
+    get '/users/sign_in'
+    sign_in(user)
+    post user_session_url
+
     @firm = firms(:one)
     @update = {
         first_name: 'Michael',

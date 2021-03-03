@@ -14,6 +14,7 @@ Rails.application.configure do
 
   # prevent Cookie Overflow error when using Auth0
   config.cache_store = :memory_store
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

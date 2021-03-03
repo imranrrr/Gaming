@@ -1,10 +1,18 @@
 require 'test_helper'
 
 class ClientsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    user = users(:user_1)
+    get '/users/sign_in'
+    sign_in(user)
+    post user_session_url
+
     @client = clients(:one)
     @update = {
         client_name: 'Test Testing',
+   
         address: '1000 Test Ave.',
         city: 'Testing',
         state: 'CO',
@@ -30,6 +38,16 @@ class ClientsControllerTest < ActionDispatch::IntegrationTest
       total_requests: 2,
       zip: "90210"
     }
+
+  end
+
+  test "create user" do
+    user = User.create(
+     email: 'test@example.com', 
+    password: 'password123',
+    password_confirmation: 'password123'
+    )
+    assert user.valid?
   end
 
   test "should get index" do

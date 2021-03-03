@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class ServicesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+  
   setup do
+    user = users(:user_1)
+    get '/users/sign_in'
+    sign_in(user)
+    post user_session_url
     @service = services(:one)
   end
 

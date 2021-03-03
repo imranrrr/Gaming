@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do 
+  add_filter "/app/models/user.rb"
+end
 Rails.application.eager_load!
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -13,5 +15,10 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def sign_in(user_1)
+    post user_session_path \
+      'user[email]'    => user.email,
+      'user[password]' => user.password
+  end
   # Add more helper methods to be used by all tests here...
 end
